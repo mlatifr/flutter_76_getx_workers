@@ -3,11 +3,19 @@ import 'package:flutter_76_getx_workers/contorllers/my_controllers.dart';
 import 'package:get/get.dart';
 
 class HomePage extends StatelessWidget {
-  final myC = Get.put(MyCOntroller());
+  final myC = Get.put(MyController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+              icon: Icon(Icons.refresh),
+              onPressed: () {
+                myC.reset();
+              })
+        ],
+      ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
